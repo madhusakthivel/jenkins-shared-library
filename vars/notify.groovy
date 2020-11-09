@@ -4,7 +4,9 @@ def call(Map config=[:]) {
         echo Constants.SLACK_MESSAGE
         echo config.message
 	    /*slackSend channel: '#jenkins', message: config.message*/
-	   slackSend channel: '#jenkins', message: config.message ${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}
+	  slackSend channel: '#jenkins',
+          color: 'good',
+          message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}"
     } else {
         echo Constants.EMAIL_MESSAGE
 	emailext body: config.message, subject: 'Build Status', to: 'madhu.spmm@gmail.com'
