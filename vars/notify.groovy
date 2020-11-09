@@ -6,6 +6,6 @@ def call(Map config=[:]) {
     } else {
         echo Constants.EMAIL_MESSAGE
         echo config.message
-		mail bcc: '', body: '''Hello Madhu,''', cc: '', from: 'Jenkins Admin', replyTo: '', subject: 'Jenkins Shared Library Notification', to: 'madhu.spmm@gmail.com'
+		mail bcc: '', body: '''Hello Madhu,''', cc: '', from: '', replyTo: '', subject: 'Jenkins Shared Library Notification', to: 'madhu.spmm@gmail.com'
     }
 }
